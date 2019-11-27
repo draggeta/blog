@@ -1,5 +1,5 @@
 #!/bin/sh
-apk add --update git openssh-client bash git-subtree \
+apk add --update git openssh-client bash git-subtree         \
     findutils py-pygments asciidoctor libc6-compat libstdc++ \
     ca-certificates
 
