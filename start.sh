@@ -3,7 +3,7 @@ apt-get update -y
 apt-get install git -y
 
 if ! git diff --no-ext-diff --quiet --exit-code; then
-    SSH_PATH="~/.ssh"
+    SSH_PATH="./.ssh"
     KEY_FILENAME="id_rsa"
     mkdir -p "${SSH_PATH}"
     chmod 700 "${SSH_PATH}"
@@ -11,7 +11,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
     chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
-    echo -e "Host github.com\n\tIdentityFile ~/.ssh/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
+    echo -e "Host github.com\n\tIdentityFile ${SSH_PATH}/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
     chmod 644 "${SSH_PATH}/config"
 
     ssh-keyscan github.com >> "${SSH_PATH}/known_hosts"
@@ -24,7 +24,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     git config --local user.name "${GITHUB_ACTOR}"
     git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-    git config --global core.sshCommand 'ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa -F /dev/null'
+    git config --global core.sshCommand "ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i ${SSH_PATH}/id_rsa -F /dev/null"
     git config --global status.submodulesummary 1
     git config --global diff.submodule log
 
