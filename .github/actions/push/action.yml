@@ -2,11 +2,16 @@ name: Publish pages
 author: draggeta
 description: Publishes the pages to the correct repository
 
+# inputs:
+#   gha_deploy_key:
+#     description: Required. Key used to authenticate
+#     required: true
+
 runs:
   using: docker
   image: docker://klakegg/hugo:ext-alpine
   entrypoint: /bin/bash
   args:
   - start.sh
-  env:
-    GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+  # env:
+  #   GHA_DEPLOY_KEY: ${{ input.gha_deploy_key }}

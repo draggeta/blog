@@ -21,8 +21,9 @@ jobs:
         env: production
 
     - name: Publish pages
-      uses: ./.github/actions/push
-      # with:
+      uses: .github/actions/push
+      env:
+        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
       #   image: ext-alpine
       #   env: production
 
