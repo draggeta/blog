@@ -11,6 +11,9 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
     chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
+    echo -e "Host github.com\n\tIdentityFile ~/.ssh/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
+    chmod 644 "${SSH_PATH}/config"
+
     ssh-keyscan github.com >> "${SSH_PATH}/known_hosts"
     chmod 644 "${SSH_PATH}/known_hosts"
 
