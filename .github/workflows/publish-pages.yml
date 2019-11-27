@@ -23,7 +23,21 @@ jobs:
     - name: Commit and push
       run: |
         if ! git diff --no-ext-diff --quiet --exit-code; then
+          SSH_PATH="/root/.ssh"
+          KEY_FILENAME="id_rsa"
+          mkdir -p "${SSH_PATH}"
+          chmod 700 "${SSH_PATH}"
+
+          printf "%s" "$DEPLOY_KEY_PRIVATE" > "${SSH_PATH}/${KEY_FILENAME}"
+          chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
+
+          whoami
+          eval `ssh-agent -t 60 -s`
+          ssh-add "${SSH_PATH}/${KEY_FILENAME}"
+
           cd public
+          pwd
+
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config user.name
@@ -33,8 +47,7 @@ jobs:
           timestamp=$(date +%s%3N)
           git commit -a -m "Automated deployment to GitHub Pages on $timestamp"
           echo ${GHA_DEPLOY_KEY}
-          eval `ssh-agent -t 60 -s`
-          echo ${GHA_DEPLOY_KEY} | ssh-add -
+
           echo "Done!"
         fi
     #       git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
