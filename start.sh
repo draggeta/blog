@@ -1,6 +1,7 @@
+#! /bin/bash
 if ! git diff --no-ext-diff --quiet --exit-code; then
-    SSH_PATH="./.ssh"
-    KEY_FILENAME="id_rsa"
+    SSH_PATH="~/.ssh"
+    KEY_FILENAME="id_rsa2"
     mkdir -p "${SSH_PATH}"
     chmod 700 "${SSH_PATH}"
 
