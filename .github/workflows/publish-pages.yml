@@ -23,7 +23,7 @@ jobs:
     - name: Commit and push
       run: |
         if ! git diff --no-ext-diff --quiet --exit-code; then
-          SSH_PATH="./.ssh/"
+          SSH_PATH="./.ssh"
           KEY_FILENAME="id_rsa"
           mkdir -p "${SSH_PATH}"
           chmod 700 "${SSH_PATH}"
