@@ -24,6 +24,9 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     git config --local user.name "${GITHUB_ACTOR}"
     git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+    git config --global core.sshCommand 'ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa -F /dev/null'
+    git config --global status.submodulesummary 1
+    git config --global diff.submodule log
 
     git add .
 
