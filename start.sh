@@ -25,11 +25,10 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     timestamp=$(date +%s%3N)
     git commit -am "Automated deployment to GitHub Pages on $timestamp"
 
+    git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
     git push origin master
 
-    # #       git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
-    # #       mkdir -p ~/.ssh/
-    # #       ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     # #       git push
     # #       ssh-agent -k
 
