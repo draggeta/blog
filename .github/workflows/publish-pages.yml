@@ -20,54 +20,60 @@ jobs:
         image: ext-alpine
         env: production
 
-    - name: Commit and push
-      run: |
-        if ! git diff --no-ext-diff --quiet --exit-code; then
-          SSH_PATH="./.ssh"
-          KEY_FILENAME="id_rsa"
-          mkdir -p "${SSH_PATH}"
-          chmod 700 "${SSH_PATH}"
+    - name: Publish pages
+      uses: ./.github/actions/push
+      # with:
+      #   image: ext-alpine
+      #   env: production
 
-          echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
-          cat "${SSH_PATH}/${KEY_FILENAME}"
-          chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
+    # - name: Commit and push
+    #   run: |
+    #     if ! git diff --no-ext-diff --quiet --exit-code; then
+    #       SSH_PATH="./.ssh"
+    #       KEY_FILENAME="id_rsa"
+    #       mkdir -p "${SSH_PATH}"
+    #       chmod 700 "${SSH_PATH}"
 
-          whoami
-          eval `ssh-agent -t 60 -s`
-          ssh-add ${SSH_PATH}/${KEY_FILENAME}
+    #       echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
+    #       cat "${SSH_PATH}/${KEY_FILENAME}"
+    #       chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
-          cd public
-          pwd
+    #       whoami
+    #       eval `ssh-agent -t 60 -s`
+    #       ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
-          git config --local user.name "${GITHUB_ACTOR}"
-          git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config user.name
-          git config user.email
-          git add .
-          echo -n 'Files to Commit:' && ls -l | wc -l
-          timestamp=$(date +%s%3N)
-          git commit -a -m "Automated deployment to GitHub Pages on $timestamp"
-          # echo
+    #       cd public
+    #       pwd
 
-          echo "Done!"
-        fi
-    #       git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
-    #       mkdir -p ~/.ssh/
-    #       ssh-keyscan github.com >> ~/.ssh/known_hosts
-    #       git push
-    #       ssh-agent -k
-      env:
-        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+    #       git config --local user.name "${GITHUB_ACTOR}"
+    #       git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+    #       git config user.name
+    #       git config user.email
+    #       git add .
+    #       echo -n 'Files to Commit:' && ls -l | wc -l
+    #       timestamp=$(date +%s%3N)
+    #       git commit -a -m "Automated deployment to GitHub Pages on $timestamp"
+    #       # echo
+
+    #       echo "Done!"
+    #     fi
+    # #       git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+    # #       mkdir -p ~/.ssh/
+    # #       ssh-keyscan github.com >> ~/.ssh/known_hosts
+    # #       git push
+    # #       ssh-agent -k
+    #   env:
+    #     GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
 
 
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GHA_DEPLOY_KEY }}
-        branch: master
-        directory: public
-        repository: draggeta/draggeta.github.io
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GHA_DEPLOY_KEY }}
+    #     branch: master
+    #     directory: public
+    #     repository: draggeta/draggeta.github.io
 
         # cd public
         # git config --global user.name ${GITHUB_ACTOR}
