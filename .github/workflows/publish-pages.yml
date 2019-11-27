@@ -27,4 +27,4 @@ jobs:
         git config --global user.email ${GITHUB_ACTOR}@draggeta.nl
         git add .
         git commit -m "Update website"
-        git push
+        git push origin HEAD:master
