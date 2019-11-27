@@ -9,7 +9,7 @@ description: Publishes the pages to the correct repository
 
 runs:
   using: docker
-  image: docker://klakegg/hugo:ext-alpine
+  image: docker://ubuntu:latest
   entrypoint: /bin/bash
   args:
   - start.sh
