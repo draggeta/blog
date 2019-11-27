@@ -14,8 +14,16 @@ jobs:
       with:
         submodules: recursive
 
-    - name: hugo
+    - name: Build pages
       uses: klakegg/actions-hugo@1.0.0
       with:
         image: ext-alpine
         env: production
+
+    - name: Commit and push
+      run: |
+        cd public
+        git config --global user.name ${GITHUB_ACTOR}
+        git config --global user.email ${GITHUB_ACTOR}@draggeta.nl
+        git commit -m "Update website" -a
+        git push
