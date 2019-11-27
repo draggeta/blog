@@ -30,6 +30,9 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     git config --global status.submodulesummary 1
     git config --global diff.submodule log
 
+    git fetch
+    git pull origin master
+
     git add .
 
     echo -n 'Files to Commit:' && ls -l | wc -l
