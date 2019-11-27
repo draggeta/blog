@@ -28,7 +28,7 @@ jobs:
           # mkdir -p "${SSH_PATH}"
           # chmod 700 "${SSH_PATH}"
 
-          printf "%s" ${GHA_DEPLOY_KEY} > "~/.ssh/${KEY_FILENAME}"
+          echo ${GHA_DEPLOY_KEY} > "~/.ssh/${KEY_FILENAME}"
           # chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
           whoami
