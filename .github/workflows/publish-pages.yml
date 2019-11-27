@@ -30,6 +30,7 @@ jobs:
           echo -n 'Files to Commit:' && ls -l | wc -l
           timestamp=$(date +%s%3N)
           git commit -a -m "Automated deployment to GitHub Pages on $timestamp"
+        fi
     #       git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
     #       eval `ssh-agent -t 60 -s`
     #       echo ${GHA_DEPLOY_KEY}
@@ -38,7 +39,6 @@ jobs:
     #       ssh-keyscan github.com >> ~/.ssh/known_hosts
     #       git push
     #       ssh-agent -k
-    #     fi
       env:
         GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
 
