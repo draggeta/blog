@@ -1,6 +1,7 @@
-#! /bin/bash
-apt-get update -y
-apt-get install git -y
+#!/bin/sh
+apk add --update git openssh-client bash git-subtree \
+    findutils py-pygments asciidoctor libc6-compat libstdc++ \
+    ca-certificates
 
 if ! git diff --no-ext-diff --quiet --exit-code; then
     SSH_PATH="./.ssh"
