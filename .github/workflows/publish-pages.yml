@@ -25,5 +25,6 @@ jobs:
         cd public
         git config --global user.name ${GITHUB_ACTOR}
         git config --global user.email ${GITHUB_ACTOR}@draggeta.nl
-        git commit -m "Update website" -a
+        git add .
+        git commit -m "Update website"
         git push
