@@ -1,2 +1,2 @@
-# blog
-Tony Fortes Ramos' Technical Blog
+# Tony's Blog
+Tony Fortes Ramos' Technical Blog. Uses Hugo to generate the pages.
