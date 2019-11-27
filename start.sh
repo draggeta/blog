@@ -17,6 +17,8 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     ssh-keyscan github.com >> "${SSH_PATH}/known_hosts"
     chmod 644 "${SSH_PATH}/known_hosts"
 
+    ls -al "${SSH_PATH}/"
+
     eval `ssh-agent -t 60 -s`
     ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
