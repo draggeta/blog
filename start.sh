@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 if ! git diff --no-ext-diff --quiet --exit-code; then
     SSH_PATH="~/.ssh"
     KEY_FILENAME="id_rsa"
