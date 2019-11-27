@@ -34,7 +34,7 @@ jobs:
 
           whoami
           eval `ssh-agent -t 60 -s`
-          ssh-add "${SSH_PATH}/${KEY_FILENAME}"
+          ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
           cd public
           pwd
