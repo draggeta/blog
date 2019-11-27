@@ -48,7 +48,7 @@ jobs:
         github_token: ${{ secrets.GHA_DEPLOY_KEY }}
         branch: master
         directory: public
-        repository: draggeta/draggeta.github.io
+        repository: git@github.com:draggeta/draggeta.github.io.git
 
         # cd public
         # git config --global user.name ${GITHUB_ACTOR}
