@@ -23,17 +23,17 @@ jobs:
     - name: Commit and push
       run: |
         if ! git diff --no-ext-diff --quiet --exit-code; then
-          # SSH_PATH="/root/.ssh"
+          SSH_PATH="./.ssh/"
           KEY_FILENAME="id_rsa"
-          # mkdir -p "${SSH_PATH}"
-          # chmod 700 "${SSH_PATH}"
+          mkdir -p "${SSH_PATH}"
+          chmod 700 "${SSH_PATH}"
 
-          echo ${GHA_DEPLOY_KEY} > "~/.ssh/${KEY_FILENAME}"
-          # chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
+          echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
+          chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
           whoami
           eval `ssh-agent -t 60 -s`
-          ssh-add "~/.ssh/${KEY_FILENAME}"
+          ssh-add "${SSH_PATH}/${KEY_FILENAME}"
 
           cd public
           pwd
