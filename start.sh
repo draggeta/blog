@@ -20,7 +20,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     eval `ssh-agent -t 60 -s`
     ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
-    cd  public
+    cd public
 
     git config --local user.name "${GITHUB_ACTOR}"
     git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
