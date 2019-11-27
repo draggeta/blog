@@ -6,5 +6,5 @@
 	url = https://github.com/xiaoheiAh/hugo-theme-pure.git
 [submodule "public"]
 	path = public
-	url = git@github.com:draggeta/draggeta.github.io.git
+	url = https://github.com/draggeta/draggeta.github.io.git
 	branch = master
