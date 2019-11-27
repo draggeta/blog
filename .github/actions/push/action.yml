@@ -9,8 +9,8 @@ description: Publishes the pages to the correct repository
 
 runs:
   using: docker
-  image: docker://alpine/git
-  entrypoint: /bin/sh
+  image: docker://ubuntu:latest
+  entrypoint: /bin/bash
   args:
   - start.sh
   # env:

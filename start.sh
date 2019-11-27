@@ -1,4 +1,7 @@
-#! /bin/sh
+#! /bin/bash
+apt-get update -y
+apt-get install git -y
+
 if ! git diff --no-ext-diff --quiet --exit-code; then
     SSH_PATH="~/.ssh"
     KEY_FILENAME="id_rsa"
