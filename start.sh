@@ -42,6 +42,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     git commit -am "Automated deployment to GitHub Pages on $timestamp"
 
     git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+    whoami
     ssh-add -l
     git push origin master
 
