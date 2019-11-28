@@ -45,6 +45,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
 
+    git remote get-url origin
     git status
 
     git push # origin master
