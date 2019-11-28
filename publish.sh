@@ -29,8 +29,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
 
     echo -n 'Files to Commit:' && ls -l | wc -l
-    timestamp=$(date +%s%3N)
-    git commit -am "Automated deployment to GitHub Pages on $timestamp"
+    git commit -am "Automated deployment to GitHub Pages on $(date)"
 
     # store the headless commit in a separate branch
     git checkout -b temp_data
