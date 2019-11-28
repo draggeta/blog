@@ -1,0 +1,10 @@
+name: Publish pages
+author: draggeta
+description: Publishes the pages to the correct repository
+
+runs:
+  using: docker
+  image: docker://alpine
+  entrypoint: /bin/sh
+  args:
+  - publish.sh
