@@ -24,8 +24,6 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     eval `ssh-agent -t 60 -s`
     ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
-    ssh-add -l
-
     cd public
 
     git config --local user.name "${GITHUB_ACTOR}"
@@ -44,6 +42,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     git commit -am "Automated deployment to GitHub Pages on $timestamp"
 
     git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+    ssh-add -l
     git push origin master
 
 
