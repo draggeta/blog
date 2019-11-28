@@ -7,7 +7,10 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     SSH_PATH="~/.ssh"
     TEMP_SSH_PATH="${GITHUB_WORKSPACE}/.ssh"
     KEY_FILENAME="id_rsa"
+
+    mkdir -p "${SSH_PATH}"
     mkdir -p "${TEMP_SSH_PATH}"
+    chmod 750 "${SSH_PATH}"
     chmod 750 "${TEMP_SSH_PATH}"
 
     # echo ${GHA_DEPLOY_KEY} > "${TEMP_SSH_PATH}/${KEY_FILENAME}"
