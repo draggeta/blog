@@ -17,7 +17,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     mkdir -p "${SSH_PATH}"
     chmod 750 "${SSH_PATH}"
 
-    printf "%s" ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}2"
+    printf "%s" "${GHA_DEPLOY_KEY}" > "${SSH_PATH}/${KEY_FILENAME}2"
     diff "${SSH_PATH}/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}2"
     # cp "${GITHUB_WORKSPACE}/.ssh/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}"
     chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
