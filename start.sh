@@ -22,9 +22,6 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     chown root:root -R "${SSH_PATH}"
 
-    ls -al "${SSH_PATH}/"
-    ls -al "${SSH_PATH}/"
-
     eval `ssh-agent`
     ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
