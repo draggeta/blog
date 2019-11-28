@@ -26,7 +26,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     # enable ssh-agent, as it's not running in the container and add the key
     eval `ssh-agent`
-    printf "%s" "${GHA_DEPLOY_KEY}" > ssh-add - #
+    printf "%s" "${GHA_DEPLOY_KEY}" | ssh-add - #
     ssh-add -l #
     # ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
