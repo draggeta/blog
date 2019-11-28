@@ -36,7 +36,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     git config --local user.name "${GITHUB_ACTOR}"
     git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-    # git config --global core.sshCommand "ssh -o IdentitiesOnly=yes" # -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i ${TEMP_SSH_PATH}/${KEY_FILENAME} -F /dev/null"
+    git config --global core.sshCommand "ssh -i ${TEMP_SSH_PATH}/${KEY_FILENAME} -o IdentitiesOnly=yes" # -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -F /dev/null"
     git config --global status.submodulesummary 1
     git config --global diff.submodule log
 
