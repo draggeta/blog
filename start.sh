@@ -4,20 +4,20 @@ apk add --update git openssh-client bash git-subtree         \
     ca-certificates
 
 if ! git diff --no-ext-diff --quiet --exit-code; then
-    SSH_PATH="~/.ssh"
+    SSH_PATH="${GITHUB_WORKSPACE}/.ssh"
     KEY_FILENAME="id_rsa"
     mkdir -p "${SSH_PATH}"
     chmod 750 "${SSH_PATH}"
 
     # echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
-    cp "${GITHUB_WORKSPACE}/.ssh/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}"
+    # cp "${GITHUB_WORKSPACE}/.ssh/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}"
     chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
-    echo -e "Host github.com\n\tIdentityFile ${SSH_PATH}/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
-    chmod 640 "${SSH_PATH}/config"
+    # echo -e "Host github.com\n\tIdentityFile ${SSH_PATH}/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
+    # chmod 640 "${SSH_PATH}/config"
 
-    ssh-keyscan github.com >> "${SSH_PATH}/known_hosts"
-    chmod 640 "${SSH_PATH}/known_hosts"
+    # ssh-keyscan github.com >> "${SSH_PATH}/known_hosts"
+    # chmod 640 "${SSH_PATH}/known_hosts"
 
     chown root:root -R "${SSH_PATH}"
 
