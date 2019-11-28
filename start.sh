@@ -39,14 +39,17 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     git add .
 
+    git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+
     echo -n 'Files to Commit:' && ls -l | wc -l
     timestamp=$(date +%s%3N)
     git commit -am "Automated deployment to GitHub Pages on $timestamp"
 
-    git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+    git checkout -b temp_data
 
-    git remote get-url origin
-    git status
+    git checkout master
+
+    git merge temp_data
 
     git push # origin master
 
