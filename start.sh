@@ -21,7 +21,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     ls -al "${SSH_PATH}/"
 
-    eval `ssh-agent -t 60 -s`
+    eval `ssh-agent`
     ssh-add ${SSH_PATH}/${KEY_FILENAME}
 
     cd public
