@@ -10,7 +10,10 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     chmod 750 "${SSH_PATH}"
 
     echo ${GHA_DEPLOY_KEY} > "${SSH_PATH}/${KEY_FILENAME}"
-    chmod 640 "${SSH_PATH}/${KEY_FILENAME}"
+    chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
+
+    echo "test!!!!!!!!!!!!!!!!!!"
+    ls -al "${SSH_PATH}/"
 
     echo -e "Host github.com\n\tIdentityFile ${SSH_PATH}/${KEY_FILENAME}\n\tStrictHostKeyChecking no\n\tAddKeysToAgent yes\n" >> "${SSH_PATH}/config"
     chmod 640 "${SSH_PATH}/config"
