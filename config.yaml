@@ -1,5 +1,5 @@
 ## Basic Configuration
-baseURL: http://stronglybranched.io/
+baseURL: https://stronglybranched.io/
 languageCode: en-us
 title: Strongly Branched
 theme: hyde-hyde # https://github.com/htr3n/hyde-hyde.git
