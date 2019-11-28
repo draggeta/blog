@@ -4,9 +4,7 @@
 set -e
 
 # add required packages for git to run
-apk add --update git openssh-client bash git-subtree         \
-    findutils py-pygments asciidoctor libc6-compat libstdc++ \
-    ca-certificates
+apk add --update git openssh-client bash git-subtree ca-certificates
 
 # if differences are found, run
 if ! git diff --no-ext-diff --quiet --exit-code; then
@@ -18,8 +16,6 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     chmod 750 "${SSH_PATH}"
 
     printf "%s" "${GHA_DEPLOY_KEY}" > "${SSH_PATH}/${KEY_FILENAME}"
-    # diff "${SSH_PATH}/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}2"
-    # cp "${GITHUB_WORKSPACE}/.ssh/${KEY_FILENAME}" "${SSH_PATH}/${KEY_FILENAME}"
     chmod 600 "${SSH_PATH}/${KEY_FILENAME}"
 
     # add github.com to the known hosts file
