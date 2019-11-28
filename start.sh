@@ -44,6 +44,10 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
     whoami
     ssh-add -l
+    pwd
+    echo $HOME
+    echo $GITHUB_WORKFLOW
+    echo $GITHUB_WORKSPACE
     git push origin master
 
 
