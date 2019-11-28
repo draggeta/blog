@@ -9,7 +9,7 @@ apk add --update git openssh-client bash git-subtree         \
     ca-certificates
 
 # if differences are found, run
-if ! git diff --no-ext-diff --quiet; then
+if ! git diff --no-ext-diff --quiet --exit-code; then
     SSH_PATH="${GITHUB_WORKSPACE}/.ssh"
     KEY_FILENAME="id_rsa"
 
