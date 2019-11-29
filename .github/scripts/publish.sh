@@ -14,9 +14,6 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     cd public
 
-    # git fetch
-    # git pull origin master
-
     git add .
 
     echo -n 'Files to Commit:' && ls -l | wc -l
