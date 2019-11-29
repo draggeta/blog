@@ -29,7 +29,7 @@ git config --global core.sshCommand "ssh -o IdentitiesOnly=no -o StrictHostKeyCh
 git config --global status.submodulesummary 1
 git config --global diff.submodule log
 
-find ./ -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -delete -depth
+find ./ -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -type d -delete -depth
 
 ls -al
 
