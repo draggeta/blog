@@ -14,30 +14,13 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     cd public
 
-    git config --local user.name "${GITHUB_ACTOR}"
-    git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-    git config --global core.sshCommand "ssh -o IdentitiesOnly=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -F /dev/null"
-    git config --global status.submodulesummary 1
-    git config --global diff.submodule log
-
     git fetch
     git pull origin master
 
     git add .
 
-    # replace the https remote to ssh remote
-    git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
-
     echo -n 'Files to Commit:' && ls -l | wc -l
     git commit -am "Automated deployment to GitHub Pages on $(date)"
-
-    # store the headless commit in a separate branch
-    git checkout -b temp_data
-
-    git checkout master
-
-    # and merge the commit into master
-    git merge temp_data
 
     git push
 

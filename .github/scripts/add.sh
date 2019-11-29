@@ -17,4 +17,12 @@ git config --global diff.submodule log
 
 git submodule add -b master git@github.com:draggeta/draggeta.github.io.git public
 
+cd public
+
+git config --local user.name "${GITHUB_ACTOR}"
+git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config --global core.sshCommand "ssh -o IdentitiesOnly=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -F /dev/null"
+git config --global status.submodulesummary 1
+git config --global diff.submodule log
+
 echo "Done!"
