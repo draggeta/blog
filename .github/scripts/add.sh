@@ -32,7 +32,8 @@ git config --global diff.submodule log
 ls -al
 
 # remove all files and folders except .git folder
-find . -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -exec rm -rf {} \;
+find . -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -exec echo rm -rf {} \;
+find . -mindepth 1 -maxdepth 1 ! -regex '^\./\.git\(/.*\)?' | xargs -n1 echo rm -rf
 
 ls -al
 
