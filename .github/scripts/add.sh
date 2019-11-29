@@ -29,7 +29,8 @@ git config --global core.sshCommand "ssh -o IdentitiesOnly=no -o StrictHostKeyCh
 git config --global status.submodulesummary 1
 git config --global diff.submodule log
 
-find ./ -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -exec rm -rf '{}'
+# remove all files and folders except .git folder
+find . -mindepth 1 -maxdepth 1 ! -regex '^./\.git\(/.*\)?' -exec rm -rf {} \;
 
 ls -al
 
