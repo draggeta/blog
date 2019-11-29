@@ -4,7 +4,3 @@
 [submodule "themes/pure"]
 	path = themes/pure
 	url = https://github.com/xiaoheiAh/hugo-theme-pure.git
-[submodule "public"]
-	path = public
-	url = ../draggeta.github.io.git
-	branch = master

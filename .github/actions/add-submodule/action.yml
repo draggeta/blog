@@ -1,0 +1,10 @@
+name: Adds submodule
+author: draggeta
+description: Adds the website submodule into the repo
+
+runs:
+  using: docker
+  image: docker://alpine
+  entrypoint: /bin/sh
+  args:
+  - .github/scripts/add.sh

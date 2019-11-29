@@ -7,4 +7,4 @@ runs:
   image: docker://alpine
   entrypoint: /bin/sh
   args:
-  - publish.sh
+  - .github/scripts/publish.sh

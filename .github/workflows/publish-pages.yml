@@ -14,6 +14,11 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Add Submodule
+      uses: ./.github/actions/add-submodule
+      env:
+        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+
     - name: Build pages
       uses: klakegg/actions-hugo@1.0.0
       with:
