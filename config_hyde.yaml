@@ -1,5 +1,5 @@
 ## Basic Configuration
-baseURL: http://stronglybranched.io/
+baseURL: https://stronglybranched.io/
 languageCode: en-us
 title: Strongly Branched
 theme: hyde-hyde # https://github.com/htr3n/hyde-hyde.git
@@ -54,8 +54,8 @@ menu:
 params:
   author: Tony Fortes Ramos
   title: Title
-  # description: ...
-  authorimage: /img/hugo.png
+  description: DevOps | Automation | Cloud | Infrastructure
+  authorimage: img/sidebar.svg
   dateformat: 2006-01-02
 
   # sidebar, copyright & license
@@ -75,14 +75,14 @@ params:
   #UtterancesTheme: ... # github-light or github-dark
 
   # Table of contents
-  # toc: none # none, hugo, tocbot
+  toc: hugo # none, hugo, tocbot
 
 ## Social Accounts
   social:
-    email: amfortesramos@hotmail.com
     github: draggeta
     linkedin: antoniofortesramos
     twitter: draggeta
+    # email: amfortesramos@hotmail.com
     # instagram: <username>
     # xing: <username>
     # facebook: <username>

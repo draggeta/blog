@@ -55,7 +55,7 @@ params:
   author: Tony Fortes Ramos
   title: Title
   description: DevOps | Automation | Cloud | Infrastructure
-  authorimage: images/sidebar.svg
+  authorimage: img/sidebar.svg
   dateformat: 2006-01-02
 
   # sidebar, copyright & license
