@@ -9,6 +9,14 @@ categories: [troubleshooting]
 tags: [netscaler, cache, content switching, exchange]
 ---
 
+{{< 
+  figure src="./media/title.png" 
+  caption="Flooding at Cache River" 
+  alt="Housing and Other Facilities Were Flooded at Cache River National Wildlife Refuge." 
+  attr="U.S. Fish and Wildlife Service Southeast Region" 
+  attrlink="https://creativecommons.org/licenses/by/2.0/deed.en" 
+>}}
+
 > **TL;DR:** Netscalers have an `Integrated Cache` feature which can cache files even if not licensed. The cache can store corrupted or outdated files. The only way I found to clear the cache in this situation is with an HA failover or a reboot.
 
 I recently had an interesting issue to troubleshoot: A client was having issues with specifically the `Outlook Web Access` (OWA) on their Exchange servers, but only when accessed from the internet. Composing messages was essentially broken. None of the buttons worked and users could not type text in the body. When accessed internally, everything worked as intended.
@@ -47,7 +55,11 @@ Somehow, the client would receive the file, but the browser couldn't interpret i
 
 This could be verified by looking at the `Network` tab, which shows the browser trying to load the style sheet multiple times and blocking it as a result of the empty MIME type.
 
-![css errors](image.png)
+{{< 
+  figure src="./media/css_errors.png" 
+  caption="Errors downloading the CSS" 
+  alt="CSS files are downloaded, but have no content type associated with them." 
+>}}
 
 This was puzzling. The internal connection and the content switching servers both used the same `Load Balancing Virtual Servers` (LBVS). The issues reported by users did not appear when communicating with the LBVS directly. The problem clearly had to do with the CSVS and how it transferred data, so I switched my focus to the broken file.
 

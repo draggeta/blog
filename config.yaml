@@ -4,6 +4,12 @@ languageCode: en-us
 title: Strongly Branched
 theme: hyde-hyde # https://github.com/htr3n/hyde-hyde.git
 
+author: Tony Fortes Ramos
+copyright: ©2019
+
+# summarylength: 30
+paginate: 5
+
 permalinks:
   posts: /:year/:month/:title/
 # sections:
@@ -13,11 +19,6 @@ taxonomies:
   category: categories
   tag: tags
 
-author: Tony Fortes Ramos
-copyright: ©2019
-
-# summarylength: 30
-paginate: 5
 
 menu:
   main:
@@ -26,30 +27,45 @@ menu:
       title: Home
       url: /
       weight: 1
-
     - identifier: archives
       name: Archives
       title: Archives
       url: /posts/
       weight: 2
-
     - identifier: categories
       name: Categories
       title: Categories
       url: /categories/
       weight: 3
-
     - identifier: tags
       name: Tags
       title: Tags
       url: /tags/
       weight: 4
-
     - identifier: about
       name: About
       title: About
       url: /about/
       weight: 5
+    - identifier: rss
+      name: RSS
+      title: RSS
+      url: /index.xml
+      weight: 6
+
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: true
+  instagram:
+    disable: true
+  twitter:
+    disable: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: true
 
 params:
   author: Tony Fortes Ramos
