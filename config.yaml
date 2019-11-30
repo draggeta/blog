@@ -1,61 +1,63 @@
 ## Basic Configuration
 baseURL: https://stronglybranched.io/
-languageCode: en-us
+defaultContentLanguage: en
 title: Strongly Branched
-theme: hyde-hyde # https://github.com/htr3n/hyde-hyde.git
+theme: beautifulhugo # https://github.com/halogenica/beautifulhugo
+
+enableGitInfo: true
 
 author: Tony Fortes Ramos
 copyright: ©2019
 
 # summarylength: 30
-paginate: 5
+# paginate: 5
 
 permalinks:
   posts: /:year/:month/:title/
-# sections:
-#   - posts
 
 taxonomies:
   category: categories
+  series: series
   tag: tags
-
 
 menu:
   main:
-    - identifier: home
-      name: Home
-      title: Home
-      url: /
-      weight: 1
-    - identifier: archives
-      name: Archives
-      title: Archives
-      url: /posts/
-      weight: 2
-    - identifier: categories
-      name: Categories
-      title: Categories
-      url: /categories/
-      weight: 3
-    - identifier: tags
-      name: Tags
-      title: Tags
-      url: /tags/
-      weight: 4
-    - identifier: about
-      name: About
-      title: About
-      url: /about/
-      weight: 5
-    - identifier: rss
-      name: RSS
-      title: RSS
-      url: /index.xml
-      weight: 6
+  - identifier: home
+    name: "Home"
+    url: ""
+    weight: 1
+
+  - identifier: archives
+    name: Archives
+    title: Archives
+    url: /posts/
+    weight: 2
+
+  - identifier: meta
+    name: Meta
+    weight: 3
+
+  - parent: meta
+    identifier: categories
+    name: "Categories"
+    url: categories
+    weight: 1
+
+  - parent: meta
+    identifier: tags
+    name: Tags
+    url: tags
+    weight: 2
+
+  - identifier: about
+    name: About
+    title: About
+    url: /about/
+    weight: 5
 
 privacy:
   disqus:
-    disable: true
+    disable: false
   googleAnalytics:
     disable: true
   instagram:
@@ -67,41 +69,76 @@ privacy:
   youtube:
     disable: true
 
+# hugo gen chromastyles --style=monokai > static/css/syntax.css
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+pygmentsCodefencesGuessSyntax: true
+# pygmentOptions: "linenos=inline"
+
+disqusShortname: stronglybranched
+#googleAnalytics: "XXX"
+
 params:
-  author: Tony Fortes Ramos
-  title: Title
-  description: DevOps | Automation | Cloud | Infrastructure
-  authorimage: img/sidebar.svg
-  dateformat: 2006-01-02
+  # homeTitle: "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  subtitle: DevOps | Automation | Cloud | Infrastructure
+  mainSections: [post, posts]
+  logo: img/sidebar.svg # Expecting square dimensions
+  favicon: img/favicon.ico
+  copyright: "CC BY-SA 4.0"
+  dateFormat: January 2, 2006
 
-  # sidebar, copyright & license
-  copyright: Tony Fortes Ramos
-  license: CC BY-SA 4.0
-  licenseURL: https://creativecommons.org/licenses/by-sa/4.0
-  showBuiltWith: true
+  commit: https://github.com/draggeta/blog/tree/
+  rss: true
 
-  # https://highlightjs.org
-  highlightjs: true
-  highlightjsstyle: github
+  comments: true
+  readingTime: true
+  wordCount: true
 
-  # please choose either GraphComment or Disqus or Utterances
-  #GraphCommentId: ...
-  #UtterancesRepo: ... # https://utteranc.es/
-  #UtterancesIssueTerm: ... # pathname, url, title, og:title
-  #UtterancesTheme: ... # github-light or github-dark
+  delayDisqus: true
+  showRelatedPosts: true
+  # useHLJS: true
+  # socialShare: true
+  # hideAuthor: true
+  # gcse: 012345678901234567890:abcdefghijk # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
-  # Table of contents
-  toc: hugo # none, hugo, tocbot
+  bigimg:
+  - src: img/triangle.jpg
+    desc: Triangle
 
-## Social Accounts
-  social:
-    github: draggeta
-    linkedin: antoniofortesramos
-    twitter: draggeta
-    # email: amfortesramos@hotmail.com
-    # instagram: <username>
-    # xing: <username>
-    # facebook: <username>
-    # stackoverflow: <username>
-    # telegram: <username>
-    # gravatar: your-email@example.com
+  - src: img/sphere.jpg
+    desc: Sphere
+    # position: see values of CSS background-position.
+    position: center top
+
+  - src: img/hexagon.jpg
+    desc: Hexagon
+
+author:
+  name: Tony Fortes Ramos
+  github: draggeta
+  twitter: draggeta
+  linkedin: antoniofortesramos
+  # email: youremail@domain.com
+  # facebook: username
+  # gitlab: username
+  # bitbucket: username
+  # reddit: username
+  # xing: username
+  # stackoverflow: users/XXXXXXX/username
+  # snapchat: username
+  # instagram: username
+  # youtube: user/username # or channel/channelname
+  # soundcloud: username
+  # spotify: username
+  # bandcamp: username
+  # itchio: username
+  # vk: username
+  # paypal: username
+  # telegram: username
+  # 500px: username
+  # codepen: username
+  # mastodon: url
+  # kaggle: username
+  # website: yourwebsite.com
+  # weibo: username
+  # slack: username

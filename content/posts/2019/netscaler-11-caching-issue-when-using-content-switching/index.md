@@ -1,21 +1,24 @@
 ---
 title: Netscaler 11 content switching caching issue
 date: 2019-11-20T00:48:53+01:00
-# description: Troubleshooting why an Exchange OWA page isn't loading correctly when content switched by a Netscaler.
-include_toc: false
+description: Troubleshooting why an Exchange OWA page isn't loading correctly when content switched by a Netscaler.
 params:
+  include_toc: true
   show_comments: true
 categories: [troubleshooting]
 tags: [netscaler, cache, content switching, exchange]
 ---
 
-{{< 
-  figure src="./media/title.png" 
-  caption="Flooding at Cache River" 
+{{< figure 
+  src="./media/title.png"
+  width="1000"
+  caption="Flooding at Cache River " 
+  caption-position="bottom"
+  caption-effect="fade"
   alt="Housing and Other Facilities Were Flooded at Cache River National Wildlife Refuge." 
-  attr="U.S. Fish and Wildlife Service Southeast Region" 
-  attrlink="https://creativecommons.org/licenses/by/2.0/deed.en" 
+  attr="©U.S. Fish and Wildlife Service Southeast Region" 
 >}}
+  <!-- attrlink="http://test" -->
 
 > **TL;DR:** Netscalers have an `Integrated Cache` feature which can cache files even if not licensed. The cache can store corrupted or outdated files. The only way I found to clear the cache in this situation is with an HA failover or a reboot.
 
@@ -55,9 +58,11 @@ Somehow, the client would receive the file, but the browser couldn't interpret i
 
 This could be verified by looking at the `Network` tab, which shows the browser trying to load the style sheet multiple times and blocking it as a result of the empty MIME type.
 
-{{< 
-  figure src="./media/css_errors.png" 
+{{< figure 
+  src="./media/css_errors.png" 
   caption="Errors downloading the CSS" 
+  caption-position="bottom"
+  caption-effect="fade"
   alt="CSS files are downloaded, but have no content type associated with them." 
 >}}
 
