@@ -23,7 +23,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     echo -n 'Files to Commit:' && ls -l | wc -l
     git commit -am "Automated deployment to GitHub Pages on $(date)"
 
-    printf "Push all changes to the pages repository"
+    printf "Push all changes to the pages repository\n"
     git push
 
 else
