@@ -17,19 +17,17 @@ git config --global status.submodulesummary 1
 git config --global diff.submodule log
 
 # setup the git configuration for the parent repository
-printf "Set up git user configuration for the blog repository\n"
-git config --local user.name "${GITHUB_ACTOR}"
-git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+printf "Set up git user configuration\n"
+git config --global user.name "${GITHUB_ACTOR}"
+git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 # add the website repo as a submodule, in the public directory
 printf "Add the pages repository as a submodule\n"
 git submodule add -b master git@github.com:draggeta/draggeta.github.io.git public
 
-# setup the git configuration for the submodule repository
-printf "Set up git user configuration for the pages repository\n"
+# Remove all files from the pages repository so no old files remain
+printf "Clean the pages repository\n"
 cd public
-git config --local user.name "${GITHUB_ACTOR}"
-git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 # remove all files and folders except .git folder
 find . -mindepth 1 -maxdepth 1 ! -regex '^\./\.git' -exec rm -rf {} \;
