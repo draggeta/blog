@@ -34,4 +34,4 @@ git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 # remove all files and folders except .git folder
 find . -mindepth 1 -maxdepth 1 ! -regex '^\./\.git' -exec rm -rf {} \;
 
-echo "Done!"
+printf "Done!"
