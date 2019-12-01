@@ -5,6 +5,6 @@ description: Adds the website submodule into the repo
 runs:
   using: docker
   image: docker://jojomi/hugo:0.60.1
-  # entrypoint: /bin/sh
+  entrypoint: /bin/sh
   args:
   - .github/scripts/add.sh
