@@ -3,8 +3,12 @@
 # abort if any command fails
 set -e
 
-# add required packages for git to run
-apk add --update git openssh-client bash git-subtree ca-certificates
+# # add required packages for git to run
+# apk add --update git openssh-client bash git-subtree ca-certificates
+
+pwd
+cd ${GITHUB_WORKSPACE}
+pwd
 
 # enable ssh-agent, as it's not running in the container and add the key
 printf "Enable and set up SSH agent\n"

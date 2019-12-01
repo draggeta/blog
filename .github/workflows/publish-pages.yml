@@ -14,14 +14,10 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Add submodules
-      # uses: docker://jojomi/hugo:0.60.1
-      run: ${GITHUB_WORKSPACE}/.github/scripts/add.sh
-
-    # - name: Add Submodule
-    #   uses: ./.github/actions/add-submodule
-    #   env:
-    #     GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+    - name: Add Submodule
+      uses: ./.github/actions/add-submodule
+      env:
+        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
 
     # - name: Build pages
     #   uses: klakegg/actions-hugo@1.0.0
