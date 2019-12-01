@@ -3,7 +3,7 @@
 # abort if any command fails
 set -e
 
-# # add required packages for git to run
+# # add required packages
 apk add --update openssh-client # bash git git-subtree ca-certificates
 
 printf "Set the current workdir to ${GITHUB_WORKSPACE}"
