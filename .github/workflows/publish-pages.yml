@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
       with:
         submodules: recursive
 
-    - name: build and deploy
+    - name: Build and deploy
       uses: ./.github/actions/build-deploy
       env:
         GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
