@@ -82,7 +82,7 @@ params:
   # homeTitle: "Beautiful Hugo Theme" # Set a different text for the header on the home page
   subtitle: DevOps | Automation | Cloud | Infrastructure
   mainSections: [post, posts]
-  logo: img/sidebar.svg # Expecting square dimensions
+  logo: img/avatar-icon.svg # Expecting square dimensions
   favicon: img/favicon.ico
   copyright: "CC BY-SA 4.0"
   dateFormat: January 2, 2006
@@ -102,16 +102,28 @@ params:
   # gcse: 012345678901234567890:abcdefghijk # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
   bigimg:
-  - src: img/triangle.jpg
-    desc: Triangle
+  - src: img/windmill.jpg
+    desc: Windmill
+    # https://www.goodfreephotos.com/netherlands/other/windmill-by-the-shoreline-in-the-netherlands.jpg.php
 
-  - src: img/sphere.jpg
-    desc: Sphere
-    # position: see values of CSS background-position.
-    position: center top
+  - src: img/cladonia-rangiferina.jpg
+    desc: Cladonia Rangiferina, cropped ©Gurfinkeld CC-BY-4.0
+    # https://commons.wikimedia.org/wiki/File:Cladonia_rangiferina_-_%D0%9A%D0%BB%D0%B0%D0%B4%D0%BE%D0%BD%D0%B8%D1%8F_%D0%BE%D0%BB%D0%B5%D0%BD%D1%8C%D1%8F.jpg
 
-  - src: img/hexagon.jpg
-    desc: Hexagon
+  - src: img/cape-verde.jpg
+    desc: Cape Verde ©NASA
+    # https://earthobservatory.nasa.gov/images/19326/dust-over-cape-verde
+
+  # - src: img/triangle.jpg
+  #   desc: Triangle
+
+  # - src: img/sphere.jpg
+  #   desc: Sphere
+  #   # position: see values of CSS background-position.
+  #   position: center top
+
+  # - src: img/hexagon.jpg
+  #   desc: Hexagon
 
 author:
   name: Tony Fortes Ramos
