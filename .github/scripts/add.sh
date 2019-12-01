@@ -6,7 +6,6 @@ set -e
 # # add required packages for git to run
 apk add --update openssh-client # bash git git-subtree ca-certificates
 
-# set working directory to the workspace
 printf "Set the current workdir to ${GITHUB_WORKSPACE}"
 cd ${GITHUB_WORKSPACE}
 
@@ -29,15 +28,21 @@ git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 printf "Add the pages repository as a submodule\n"
 git submodule add -b master git@github.com:draggeta/draggeta.github.io.git public
 
-# Change working directory to the pages repo
 printf "Set the current workdir to ${GITHUB_WORKSPACE}/public"
 cd ${GITHUB_WORKSPACE}/public
 
-printf "Clean the pages repository\n"
 # remove all files and folders except .git folder
+printf "Clean the pages repository\n"
 find . -mindepth 1 -maxdepth 1 ! -regex '^\./\.git' -exec rm -rf {} \;
 
+printf "Set the current workdir to ${GITHUB_WORKSPACE}"
+cd ${GITHUB_WORKSPACE}
+
+printf "Generate the pages with Hugo"
 hugo
+
+printf "Set the current workdir to ${GITHUB_WORKSPACE}/public"
+cd ${GITHUB_WORKSPACE}/public
 ls -al
 
 printf "Done!"
