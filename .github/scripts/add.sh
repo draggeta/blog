@@ -6,9 +6,9 @@ set -e
 # # add required packages for git to run
 apk add --update openssh-client # bash git git-subtree ca-certificates
 
-pwd
+# set working directory to the workspace
+printf "Set the current workdir to ${GITHUB_WORKSPACE}"
 cd ${GITHUB_WORKSPACE}
-pwd
 
 # enable ssh-agent, as it's not running in the container and add the key
 printf "Enable and set up SSH agent\n"
@@ -29,11 +29,15 @@ git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 printf "Add the pages repository as a submodule\n"
 git submodule add -b master git@github.com:draggeta/draggeta.github.io.git public
 
-# Remove all files from the pages repository so no old files remain
-printf "Clean the pages repository\n"
-cd public
+# Change working directory to the pages repo
+printf "Set the current workdir to ${GITHUB_WORKSPACE}/public"
+cd ${GITHUB_WORKSPACE}/public
 
+printf "Clean the pages repository\n"
 # remove all files and folders except .git folder
 find . -mindepth 1 -maxdepth 1 ! -regex '^\./\.git' -exec rm -rf {} \;
+
+hugo
+ls -al
 
 printf "Done!"
