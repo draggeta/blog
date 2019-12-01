@@ -54,7 +54,7 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     printf "%s" "${GHA_DEPLOY_KEY}" | ssh-add -
 
     printf "Stage all files in the pages repository\n"
-    cd public
+    cd ${GITHUB_WORKSPACE}/public
     git add .
 
     printf "Commit all files in the pages repository\n"
