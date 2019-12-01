@@ -16,7 +16,7 @@ jobs:
 
     - name: Add submodules
       # uses: docker://jojomi/hugo:0.60.1
-      run: ./.github/scripts/add.sh
+      run: ${GITHUB_WORKSPACE}/.github/scripts/add.sh
 
     # - name: Add Submodule
     #   uses: ./.github/actions/add-submodule
