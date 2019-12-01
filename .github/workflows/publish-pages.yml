@@ -15,7 +15,7 @@ jobs:
         submodules: recursive
 
     - name: Add submodules
-      uses: docker://jojomi/hugo:0.60.1
+      # uses: docker://jojomi/hugo:0.60.1
       run: ./.github/scripts/add.sh
 
     # - name: Add Submodule
