@@ -7,4 +7,4 @@ runs:
   image: docker://jojomi/hugo:0.60.1
   # entrypoint: /bin/sh
   args:
-  - ${GITHUB_WORKSPACE}/.github/scripts/add.sh
+  - .github/scripts/add.sh
