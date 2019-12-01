@@ -6,7 +6,7 @@ set -e
 # add required packages for git to run
 apk add --update git openssh-client bash git-subtree ca-certificates
 
-printf "Check if there is any differences in git\n"
+printf "Check for changes in git\n"
 
 # if differences are found, run
 if ! git diff --no-ext-diff --quiet --exit-code; then
@@ -25,6 +25,9 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
 
     printf "Push all changes to the pages repository"
     git push
+
+else
+    printf "No changes found\n"
 
 fi
 
