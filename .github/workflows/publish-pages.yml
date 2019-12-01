@@ -14,18 +14,22 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Add Submodule
-      uses: ./.github/actions/add-submodule
-      env:
-        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+    - name: Add submodules
+      uses: docker://jojomi/hugo:0.60.1
+      run: ./.github/scripts/add.sh
 
-    - name: Build pages
-      uses: klakegg/actions-hugo@1.0.0
-      with:
-        image: ext-alpine
-        env: production
+    # - name: Add Submodule
+    #   uses: ./.github/actions/add-submodule
+    #   env:
+    #     GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
 
-    - name: Publish pages
-      uses: ./.github/actions/publish-submodule
-      env:
-        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+    # - name: Build pages
+    #   uses: klakegg/actions-hugo@1.0.0
+    #   with:
+    #     image: ext-alpine
+    #     env: production
+
+    # - name: Publish pages
+    #   uses: ./.github/actions/publish-submodule
+    #   env:
+    #     GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
