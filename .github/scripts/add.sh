@@ -4,7 +4,7 @@
 set -e
 
 # # add required packages for git to run
-# apk add --update git openssh-client bash git-subtree ca-certificates
+apk add --update openssh-client # bash git git-subtree ca-certificates
 
 pwd
 cd ${GITHUB_WORKSPACE}
