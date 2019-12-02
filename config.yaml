@@ -1,5 +1,5 @@
 ## Basic Configuration
-baseURL: https://stronglybranched.io/
+baseURL: https://stronglybranched.netlify.com/
 defaultContentLanguage: en
 title: Strongly Branched
 theme: beautifulhugo # https://github.com/halogenica/beautifulhugo
@@ -75,7 +75,7 @@ pygmentsCodeFences: true
 pygmentsCodefencesGuessSyntax: true
 # pygmentOptions: "linenos=inline"
 
-disqusShortname: stronglybranched
+# disqusShortname: stronglybranched
 #googleAnalytics: "XXX"
 
 params:
@@ -101,8 +101,8 @@ params:
   # hideAuthor: true
   # gcse: 012345678901234567890:abcdefghijk # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
-  # staticman:
-  #   api: api = "https://api.staticman.net/v3/entry/github/draggeta/blog/master/comments"
+  staticman:
+    api: api = "https://api.staticman.net/v3/entry/github/draggeta/blog/master/comments"
   #   recaptcha:
   #     sitekey: "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
   #     secret: "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
