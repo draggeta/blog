@@ -84,8 +84,8 @@ params:
   mainSections: [post, posts]
   logo: img/avatar-icon.svg # Expecting square dimensions
   favicon: img/favicon.ico
-  copyright: "CC BY-SA 4.0"
-  dateFormat: January 2, 2006
+  copyright: CC BY-SA 4.0
+  dateFormat: Jan 2, 2006
 
   commit: https://github.com/draggeta/blog/tree/
   rss: true
@@ -109,7 +109,7 @@ params:
 
   bigimg:
   - src: img/windmill.jpg
-    desc: Windmill
+    desc: Windmill in the Netherlands ©Skitterphoto
     # https://www.goodfreephotos.com/netherlands/other/windmill-by-the-shoreline-in-the-netherlands.jpg.php
 
   - src: img/cladonia-rangiferina.jpg
