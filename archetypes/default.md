@@ -1,11 +1,12 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-author: ""
-type: ""
+title: {{ replace .Name "-" " " | title }}
+author:
+type:
 date: {{ .Date }}
-subtitle: ""
-image: ""
+subtitle:
+image:
 series: []
 categories: []
 tags: []
+draft: true
 ---
