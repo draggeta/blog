@@ -46,7 +46,7 @@ As the diagram shows, both the connections from the inside and outside went thro
 
 ## Jumping in
 
-Without any other descriptions of the symptoms, my guess was that the problems were caused by a rendering error. I opened `developer mode` in a browser and navigated to the page. There I found only one difference between the `developer mode` `Console` output of the LAN and WAN connections:
+Without any other descriptions of the symptoms, my guess was that the problems were caused by a rendering error. I opened `developer mode` in a browser and navigated to the page. There I found only one difference between the `developer mode` `console` output of the LAN and WAN connections:
 
 ```
 The resource from 
