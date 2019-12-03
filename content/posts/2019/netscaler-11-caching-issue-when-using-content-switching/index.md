@@ -1,10 +1,14 @@
 ---
 title: Netscaler 11 content switching caching issue
+author: ""
+type: "post"
 date: 2019-11-20T00:48:53+01:00
-description: Troubleshooting why an Exchange OWA page isn't loading correctly when content switched by a Netscaler.
-params:
-  include_toc: true
-  show_comments: true
+subtitle: Troubleshooting why an Exchange OWA page isn't loading correctly when content switched by a Netscaler.
+image: ""
+# params:
+#   include_toc: true
+#   show_comments: true
+series: []
 categories: [troubleshooting]
 tags: [netscaler, cache, content switching, exchange]
 ---
