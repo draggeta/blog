@@ -57,7 +57,7 @@ menu:
 
 privacy:
   disqus:
-    disable: false
+    disable: true
   googleAnalytics:
     disable: true
   instagram:
