@@ -36,7 +36,7 @@ comments:
       type          : date
       options:
         format      : iso8601
-  # reCaptcha:
-  #   enabled: true
-  #   siteKey: 6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v
-  #   secret: hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic=
+  reCaptcha:
+    enabled: true
+    sitekey: 6LdB8sUUAAAAAMeITP2HpnTLP0SqgQhrJHHMfxus
+    secret: RYeGACoLUIsmYE4sTKH6Fz1sxJ9XRANZaPTA1yKWzOgTCg2vuGFYoYfQSgLfw/T9Qkyjhqy839uV5846ujAf+T1b/Ax+fOn8dZ12j1bQEtQcKIV3Zvc+5FoDYpK6VZG1XlI+lj6xB/qs9VamoT9LtWsIZAvp5Btg13PXmG9rL2w=
