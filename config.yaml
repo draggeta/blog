@@ -102,7 +102,7 @@ params:
   # gcse: 012345678901234567890:abcdefghijk # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
   staticman:
-    api: https://api.staticman.net/v3/entry/github/draggeta/blog/temp_br/comments
+    api: https://api.staticman.net/v3/entry/github/draggeta/blog/master/comments
     recaptcha:
       sitekey: 6LdB8sUUAAAAAMeITP2HpnTLP0SqgQhrJHHMfxus
       secret: RYeGACoLUIsmYE4sTKH6Fz1sxJ9XRANZaPTA1yKWzOgTCg2vuGFYoYfQSgLfw/T9Qkyjhqy839uV5846ujAf+T1b/Ax+fOn8dZ12j1bQEtQcKIV3Zvc+5FoDYpK6VZG1XlI+lj6xB/qs9VamoT9LtWsIZAvp5Btg13PXmG9rL2w=
