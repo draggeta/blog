@@ -8,12 +8,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="master-artboard"
-   viewBox="0 0 260 260"
-   width="260"
-   height="260"
+   viewBox="0 0 1080 1080"
+   width="1080"
+   height="1080"
    version="1.1"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-   sodipodi:docname="avatar-favicon.svg"
+   sodipodi:docname="avatar-hexicon.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <defs
      id="defs184" />
@@ -30,13 +30,13 @@
      inkscape:window-height="1057"
      id="namedview182"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="-248.51225"
-     inkscape:cy="-100.05442"
-     inkscape:window-x="3832"
+     inkscape:zoom="0.5"
+     inkscape:cx="-482.84828"
+     inkscape:cy="476.6023"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -59,20 +59,6 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="Background"
-     transform="translate(0,-820)"
-     style="display:inline">
-    <rect
-       style="fill:#783c50;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5.82463741;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4629"
-       width="519.9986"
-       height="519.99719"
-       x="-216.50896"
-       y="803.96698" />
-  </g>
   <path
      inkscape:connector-curvature="0"
      d=""
@@ -134,23 +120,73 @@
      id="path165"
      style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:8;stroke-opacity:1;paint-order:fill" />
   <g
-     transform="matrix(0.62318903,0,0,0.62318903,535.17591,-539.33852)"
+     transform="matrix(0.62318903,0,0,0.62318903,621.68558,166.69597)"
      style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
      id="g5118-5" />
   <g
-     transform="matrix(0.7801936,0,0,0.7801936,250.02648,-725.86067)"
+     transform="matrix(0.7801936,0,0,0.7801936,336.53615,-19.826181)"
      style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
      id="g5118-40" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Hexagon"
+     style="display:inline"
+     transform="translate(-248.71909,65.254018)">
+    <g
+       style="clip-rule:evenodd;fill:#90416d;fill-opacity:1;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       transform="matrix(11.678641,0,0,11.678641,-1944.0829,-5609.8261)"
+       id="g105-5">
+      <g
+         style="clip-rule:evenodd;fill:#90416d;fill-opacity:1;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+         transform="matrix(0.89977513,0,0,0.89977513,23.452618,52.217165)"
+         id="g105-1">
+        <g
+           style="fill:#90416d;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+           id="g-1-5">
+          <g
+             style="fill:#90416d;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+             id="g-2-0">
+            <path
+               inkscape:connector-curvature="0"
+               class="st0"
+               d="m 277,546 -43,25 -43,-25 v -50 l 43,-25 43,25 z"
+               style="fill:#90416d;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+               id="path101-0" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       style="clip-rule:evenodd;fill:#cd809e;fill-opacity:1;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       transform="matrix(7.9389947,0,0,7.9389947,-1157.1554,-3646.878)"
+       id="g105">
+      <g
+         style="fill:#cd809e;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+         id="g-1">
+        <g
+           style="fill:#cd809e;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+           id="g-2">
+          <path
+             inkscape:connector-curvature="0"
+             class="st0"
+             d="m 288.10339,544.16195 -43,25 -43,-25 v -50 l 43,-25 43,25 z"
+             style="fill:#cd809e;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round"
+             id="path101" />
+        </g>
+      </g>
+    </g>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Tree"
      style="display:inline"
-     transform="translate(-248.71909,-754.74598)">
+     transform="translate(-248.71909,65.254018)">
     <g
        id="g7680"
        style="stroke:#f0f0f0;stroke-opacity:1"
-       transform="matrix(0.48148,0,0,0.48148,-44.884211,765.62284)">
+       transform="translate(88.607838,-9.3630035)">
       <g
          id="g5118-8"
          style="clip-rule:evenodd;fill-rule:evenodd;stroke:#f0f0f0;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
