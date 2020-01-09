@@ -23,8 +23,8 @@ taxonomies:
 menu:
   main:
   - identifier: home
-    name: "Home"
-    url: ""
+    name: Home
+    url: /
     weight: 1
 
   - identifier: archives
@@ -39,14 +39,14 @@ menu:
 
   - parent: meta
     identifier: categories
-    name: "Categories"
-    url: categories
+    name: Categories
+    url: /categories/
     weight: 1
 
   - parent: meta
     identifier: tags
     name: Tags
-    url: tags
+    url: /tags/
     weight: 2
 
   - identifier: about
@@ -101,11 +101,11 @@ params:
   # hideAuthor: true
   # gcse: 012345678901234567890:abcdefghijk # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
-  staticman:
-    api: https://api.staticman.net/v3/entry/github/draggeta/blog/master/comments
-    recaptcha:
-      sitekey: 6LdB8sUUAAAAAMeITP2HpnTLP0SqgQhrJHHMfxus
-      secret: RYeGACoLUIsmYE4sTKH6Fz1sxJ9XRANZaPTA1yKWzOgTCg2vuGFYoYfQSgLfw/T9Qkyjhqy839uV5846ujAf+T1b/Ax+fOn8dZ12j1bQEtQcKIV3Zvc+5FoDYpK6VZG1XlI+lj6xB/qs9VamoT9LtWsIZAvp5Btg13PXmG9rL2w=
+  # staticman:
+  #   api: https://api.staticman.net/v3/entry/github/draggeta/blog/master/comments
+  #   recaptcha:
+  #     sitekey: 6LdB8sUUAAAAAMeITP2HpnTLP0SqgQhrJHHMfxus
+  #     secret: RYeGACoLUIsmYE4sTKH6Fz1sxJ9XRANZaPTA1yKWzOgTCg2vuGFYoYfQSgLfw/T9Qkyjhqy839uV5846ujAf+T1b/Ax+fOn8dZ12j1bQEtQcKIV3Zvc+5FoDYpK6VZG1XlI+lj6xB/qs9VamoT9LtWsIZAvp5Btg13PXmG9rL2w=
 
   bigimg:
   - src: img/windmill.jpg
