@@ -2,7 +2,7 @@
 title: USB-C device won't output to a USB-C monitor
 author:
 type: post
-date: 2020-01-09T21:51:58+01:00
+date: 2020-01-10T11:09:00+01:00
 subtitle: Not all DisplayPort Alt Modes are created equally
 image:
 series: []
