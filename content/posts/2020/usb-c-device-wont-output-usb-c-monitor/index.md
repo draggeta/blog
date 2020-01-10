@@ -7,7 +7,7 @@ subtitle: Not all DisplayPort Alt Modes are created equally
 image:
 series: []
 categories: [troubleshooting]
-tags: [usb, usb-c, alt mode, displayport, thunderbolt, power delivery, standards]
+tags: [usb, alt mode, displayport, power delivery, standards]
 ---
 
 {{< figure 
