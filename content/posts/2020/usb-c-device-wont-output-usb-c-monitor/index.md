@@ -42,13 +42,13 @@ The monitor wasn't recognized as a normal monitor either, but as a 'Billboard De
 
 ## USB protocols and standards
 
-To find out why it wasn't working, I had to read quite a bit about how USB works. Below are the parts that are relevant for the problem or were confusing or surprising to me. If you're not interested to read any of that, skip to the [conclusion](#conclusion)
+To find out why it wasn't working, I had to read quite a bit about how USB works. Below are the parts that are relevant for the problem or were confusing or surprising to me. If you're not interested in reading any of that, skip to the [conclusion](#conclusion)
 
 ### Data
 
-The protocol itself has change quite a bit from when it first launched in 1996. What surprised me was that since the original release of 1.0 through the 2.0 spec, the connections were half-duplex. It does explain why devices that connect multiple USB devices together are called hubs. Since USB 3.0, the standard is full-duplex, just like all Ethernet standards since gigabit ethernet.
+The protocol itself has change quite a bit from when it first launched in 1996. What surprised me was that since the original release of 1.0 through the 2.0 spec, the connections were half-duplex. It does explain why the concept of USB hubs exists. Since USB 3.0, the standard is full-duplex, just like all Ethernet standards since gigabit ethernet.
 
-Next, USB 3.1 was introduced. The new standard didn't exist side-by-side with USB 3.0, but superseded the 3.0 standard. What before the introduction was 3.0, became known as 3.1 Gen 1. The new standard also introduced a new variant, Gen 2, which supported up to 10 Gbit/s.
+Next, USB 3.1 was introduced. The new standard didn't exist side-by-side with USB 3.0, but superseded the 3.0 standard. What before was known as USB 3.0, became known as USB 3.1 Gen 1. The new standard also introduced a new variant, Gen 2, which supported up to 10 Gbit/s.
 
 The subsequently introduced USB 3.2 standard again superseded all previous 3.x standards. The new names and capabilities currently are:
 
@@ -131,11 +131,41 @@ It all looks a bit confusing, but it isn't. Each of the Alternate Modes is capab
 
 Back to the problem. I have a laptop and monitor that both support DisplayPort Alternative Mode over their USB-C ports. However, when both are connected, no image is displayed and an error pops up. This behaviour is actually completely according to the specifications of the DisplayPort Alt Mode standard. 
 
-As mentioned before, my laptop doesn't support USB Power Delivery over its USB Type-C port. The DisplayPort Alternate Mode standard, however, requires that if two devices are connected via USB-C, power delivery is negotiated before the Alternative Mode negotiations can happen. If no PD is negotiated, DisplayPort Alt Mode fails. The display device then falls back to offering a 'Billboard Device' so at the very least a generic USB 2.0 hub and all connected devices are provided to the host. 
+First, a simplified diagram of the power delivery negotiation: 
+{{<mermaid align="center">}}
+sequenceDiagram
+  participant M as Monitor
+  participant L as Laptop
+  
+  M ->> L: Send power profiles available on monitor
+  L -->> M: Select one of available power profiles
+  M ->> L: Accept or reject the selected profile
+  M ->> L: Switch to power profile and inform laptop
+{{</mermaid>}}
 
-If like me, you have a laptop that doesn't support USB PD but does output DP Alt Mode, you'll need to use a USB-C adapter/dock that can provide you with a separate DisplayPort connector (male or female). The negotiation for this type of connection doesn't require Power Delivery. If PD isn't supported on one side, it is disabled and moves on to the DP Alt Mode negotiation. Such an adapter or cable allows the laptop to output DP 1.4 to the monitor via the monitor's DisplayPort input.
+As mentioned before, my laptop doesn't support USB Power Delivery over its USB Type-C port. The DisplayPort Alternate Mode standard, however, requires that if two devices are connected via USB-C, power delivery is negotiated before the Alternative Mode negotiations can happen. If no PD is negotiated, Alt Modes fail. The reason for this being that the Mode negotiations use the PD communication channels. 
 
-To read more about how DisplayPort's Alt Mode works, look at [this nice pdf](https://www.st.com/content/ccc/resource/technical/document/technical_article/group0/98/86/5c/a3/d0/2e/41/98/DM00479305/files/DM00479305.pdf/jcr:content/translations/en.DM00479305.pdf) from st.com.
+{{<mermaid align="center">}}
+sequenceDiagram
+  participant M as Monitor
+  participant L as Laptop
+
+  alt success
+    L -->> M: Discover identity
+    L -->> M: Discover available Alternate Modes
+    L -->> M: Discover capabilities of the Alternate Modes
+    L -->> M: Enter Alternate Mode (DisplayPort in this case)
+    L -->> M: Configure the DP Alt Mode
+  else failure
+    M ->> L: Expose Billboard Device
+  end
+{{</mermaid>}}
+
+In case of failure, display devices fall back to offering a 'Billboard Device' so at the very least a generic USB 2.0 hub and all connected devices are provided to the host.
+
+If like my sister, you have a laptop that doesn't support USB PD but does output DP Alt Mode, you'll need to use a USB-C adapter/dock that can provide you with a separate DisplayPort connector (male or female). The negotiation for this type of connection doesn't require Power Delivery. If PD isn't supported on one side, it is disabled and moves on to the DP Alt Mode negotiation. Such an adapter or cable allows the laptop to output DP 1.4 to the monitor via the monitor's DisplayPort input.
+
+To read more about how DisplayPort's Alt Mode works, look at [this informative pdf](https://www.st.com/content/ccc/resource/technical/document/technical_article/group0/98/86/5c/a3/d0/2e/41/98/DM00479305/files/DM00479305.pdf/jcr:content/translations/en.DM00479305.pdf) from st.com.
 
 ## Conclusion
 
