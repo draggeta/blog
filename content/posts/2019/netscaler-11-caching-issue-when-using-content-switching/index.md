@@ -21,7 +21,7 @@ tags: [netscaler, cache, content switching, exchange]
 >}}
   <!-- attrlink="http://test" -->
 
-> **TL;DR:** Netscalers have an `Integrated Cache` feature which can cache files even if not licensed. The cache can store corrupted or outdated files. The only way I found to clear the cache in this situation is with an HA failover or a reboot.
+> **TL;DR:** Netscalers have an `Integrated Cache` feature which can cache files even if not licensed. This is the default AAA cache. The cache can store corrupted or outdated files. The cache can be [disabled completely](#an-annoying-fix), but The only way I found to clear the cache, even after disabling, is with an HA failover or a reboot. 
 
 I recently had an interesting issue to troubleshoot: A client was having issues with specifically the `Outlook Web Access` (OWA) on their Exchange servers, but only when accessed from the internet. Composing messages was essentially broken. None of the buttons worked and users could not type text in the body. When accessed internally, everything worked as intended.
 
@@ -121,6 +121,11 @@ sequenceDiagram
 {{</mermaid>}}
 
 ## An annoying fix
+
+> **Update:** A reader pointed out that disabling the default authentication page caching, also disables the caching functionality globally. The way to do this was in one of the [links in this article](https://discussions.citrix.com/topic/388657-netscaler-caches-files-even-if-integrated-cache-is-not-licensed-disabled/#comment-1977305), but I assumed that it only disabled the caching for the NS served AAA pages. 
+>
+>After disabling the caching, the cache remains frozen on the server. After clearing the cache by a reboot or failover, I can confirm that the static content from the Exchange servers weren't being served by the Netscalers anymore. 
+> The command to disable the caching is `set aaa parameter -enableStaticPageCaching NO`. Before implementing this, test the impact in your environment.
 
 The problem was now identified, but I still had an issue: How to fix this? Clearing the cache is the obvious solution, but if the `Integrated Cache` feature is not licensed, there is no way to empty it with a command or via the GUI. 
 
