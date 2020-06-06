@@ -18,7 +18,7 @@ In the end though, the blog will just be me writing when I have time, about topi
 
 ## About me
 
-I am Tony Fortes Ramos. I'm an IT generalist who likes to code and to, within reason, automate all the things. I've always been interested in how and why things work. I studied pharmaceutics, but just couldn't bring myself to finish it. During my studies I started working in IT, which as always been one of my passions. Grew from  a helpdesk position to administation and now engineering. My focus has always been broad and while a lot of techniques and technologies interest me, I nowadays tend to focus on networking, cloud, automation and devops (culture and tools).
+I am Tony Fortes Ramos. I'm an IT generalist who likes to code and to, within reason, automate all the things. I've always been interested in how and why things work. I studied pharmaceutics, but just couldn't bring myself to finish it. During my studies I started working in IT, which has always been one of my passions. Grew from  a helpdesk position to administation and now engineering. My focus has always been broad and while a lot of techniques and technologies interest me, I nowadays tend to focus on networking, cloud, automation and devops (culture and tools).
 
 ## About the blog
 
