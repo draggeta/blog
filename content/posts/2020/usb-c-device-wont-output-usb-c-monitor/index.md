@@ -10,6 +10,10 @@ categories: [troubleshooting]
 tags: [usb, alt mode, displayport, power delivery, standards]
 ---
 
+Last holiday I helped my sister find a new setup for her home office. I wanted her setup to be as simple as possible. Both the selected monitor and laptop support USB Type-C DisplayPort Alternate Mode which allows for output/input of a DP signal over USB-C. However, the laptop could not output to the display over a USB-C cable.
+
+<!--more-->
+
 {{< figure 
   src="./media/title.webp"
   width="1000"
