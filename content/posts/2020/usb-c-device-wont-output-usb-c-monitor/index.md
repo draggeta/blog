@@ -4,15 +4,11 @@ author:
 type: post
 date: 2020-01-10T11:09:00+01:00
 subtitle: Not all DisplayPort Alt Modes are created equally
-image:
+image: media/title.webp
 series: []
 categories: [troubleshooting]
 tags: [usb, alt mode, displayport, power delivery, standards]
 ---
-
-Last holiday I helped my sister find a new setup for her home office. I wanted her setup to be as simple as possible. Both the selected monitor and laptop support USB Type-C DisplayPort Alternate Mode which allows for output/input of a DP signal over USB-C. However, the laptop could not output to the display over a USB-C cable.
-
-<!--more-->
 
 {{< figure 
   src="./media/title.webp"
