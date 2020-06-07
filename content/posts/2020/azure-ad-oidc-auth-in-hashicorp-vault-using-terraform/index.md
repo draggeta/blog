@@ -288,6 +288,6 @@ This will save some typing on both the web UI and the CLI. To log in via the CLI
 vault login -method oidc
 ```
 
-The examples in this post are incomplete. One of the missing pieces are the policy definitions. A more complete example containing the missing pieces can be found in my GitHub [here](#############WTFFFF). 
+The examples in this post are incomplete. One of the missing pieces are the policy definitions. A more complete example containing the missing pieces can be found in my GitHub [here](https://github.com/draggeta/blog/tree/master/content/posts/2020/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/code). 
 
 I hope the article was helpful in some way and until next time!
