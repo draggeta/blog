@@ -4,7 +4,7 @@ author:
 type: post
 date: 2020-06-07T21:00:00+02:00
 subtitle: Configuring Azure AD with Azure AD App Roles as an OIDC authentication backend in HashiCorp Vault using Terraform
-image: media/title.png
+image: 2020/06/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/media/title.png
 series: []
 categories: [infrastructure]
 tags: [hashicorp vault, terraform, azure ad, app roles, oidc]
