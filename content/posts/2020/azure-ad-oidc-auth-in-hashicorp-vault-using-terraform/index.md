@@ -29,7 +29,8 @@ While I've done quite a bit with Vault and [OAuth 2.0](https://oauth.net/2/)/[Op
 
 Thankfully, the [documentation](https://www.vaultproject.io/docs/auth/jwt_oidc_providers#azure-active-directory-aad) for setting up Azure AD authentication is quite clear. It describes all the steps to take. This post makes use of the information, but adapts it to the requirements and uses Terraform to apply the configuration to Vault.
 
-This post assumes that the reader has some knowledge of Terraform, Azure AD and Vault. I won't be detailing how to set them up or work with these tools.
+This post assumes that the reader has some knowledge of Terraform, Azure AD and Vault. I won't be detailing how to set them up or work with these tools. The examples in this post will focus solely on the authentication configuration. A more complete example containing among others, policy defitions, can be found in my [GitHub](https://github.com/draggeta/blog/tree/master/content/posts/2020/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/code). 
+
 
 ## Start the Vault Server
 
@@ -296,6 +297,4 @@ This will save some typing on both the web UI and the CLI. To log in via the CLI
 vault login -method oidc
 ```
 
-The examples in this post focused solely on the authentication. The policy definitions are one of the missing pieces. Another is the TTL adjustments to the Vault token lifetimes. A more complete example containing some of the missing pieces can be found in my GitHub [here](https://github.com/draggeta/blog/tree/master/content/posts/2020/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/code). 
-
-I hope this article can be helpful in some way. Until next time!
+And we're done! I hope this article was helpful in some way. Until next time 
