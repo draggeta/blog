@@ -1,0 +1,86 @@
+/* --- General --- */
+
+blockquote {
+  /* edited */
+  color: #606060;
+  font-style: italic;
+}
+
+/* --- Navbar --- */
+
+.navbar-custom {
+  /* edited */
+  background: #202020;
+  /* edited */
+  border-bottom: 1px solid #606060;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar-custom .nav li a {
+  font-weight: 800;
+  /* edited */
+  color: #d0d0d0;
+}
+
+/* Multi-level navigation links */
+
+.navbar-custom .nav .navlinks-container .navlinks-children a {
+  display: block;
+  padding: 10px;
+  padding-left: 30px;
+  /* edited */
+  background: #303030;
+  text-decoration: none !important;
+  border-width: 0 1px 1px 1px;
+  font-weight: normal;
+}
+@media only screen and (max-width: 767px) {
+  .navbar-custom .nav .navlinks-container.show-children {
+    /* edited */
+    background: #505050;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar-custom .nav .navlinks-container:hover {
+    /* edited */
+    background: #282828;
+  }
+  .navbar-custom .nav .navlinks-container .navlinks-children a {
+    padding-left: 10px;
+    /* edited */
+    border: 1px solid #404040;
+    border-width: 0 1px 1px;
+  }
+}
+
+/* --- Footer --- */
+
+footer {
+  padding: 30px 0;
+  /* edited */
+  background: #202020;
+  /* edited */
+  border-top: 1px #606060 solid;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+footer a {
+  /* edited */
+  color: #606060;
+}
+
+footer .theme-by {
+  text-align: center;
+  margin: 10px 0 0;
+  /* edited */
+  color: #d0d0d0;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .copyright {
+    font-size: 16px;
+    /* edited */
+    color: #d0d0d0;
+  }
+}

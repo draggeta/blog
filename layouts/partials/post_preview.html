@@ -7,7 +7,9 @@
         </h3>
         {{ end }}
         {{ if .Params.image }}
-        <!--This modification here allows the url to be formed correctly for my usecase.-->
+        <!--This modification here allows the url to be formed correctly for my usecase.
+        The problem is that the URL to the image is otherwise relative and breaks.
+        -->
         <img src="{{ .Permalink }}/{{ .Params.image }}" alt="{{ .Title }}" class="img-title" />
         {{ end }}
         {{ if .Params.video }}
