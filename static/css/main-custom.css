@@ -1,11 +1,3 @@
-/* --- General --- */
-
-blockquote {
-  /* edited */
-  color: #606060;
-  font-style: italic;
-}
-
 /* --- Navbar --- */
 
 .navbar-custom {
@@ -16,6 +8,7 @@ blockquote {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.navbar-custom .navbar-brand,
 .navbar-custom .nav li a {
   font-weight: 800;
   /* edited */
