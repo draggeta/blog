@@ -2,7 +2,7 @@
 title: Azure AD OIDC auth in HashiCorp Vault using Terraform
 author:
 type: post
-date: 2020-06-07T22:15:00+02:00
+date: 2020-06-08T14:15:00+02:00
 subtitle: Configuring Azure AD with Azure AD App Roles as an OIDC authentication backend in HashiCorp Vault using Terraform
 image: media/title.png
 series: []
@@ -33,15 +33,15 @@ Thankfully, the [documentation](https://www.vaultproject.io/docs/auth/jwt_oidc_p
 
 Let's start with the easy part: starting a development Vault server. If you don't know how to install Vault, there is a [guide](https://learn.hashicorp.com/vault/getting-started/install) on the Vault site. 
 
-Set the `VAULT_ADDR` environment variable to `http://127.0.0.1:8200` as we'll be running a dev server. This environment variable tells the client where to reach the running Vault server. The root token (for authentication) will be hardcoded for simplicity. As some troubleshooting may be required, the log level is set to debug.
+Before starting the server, we're going set some variables. Create a GUID to serve as the root token. The token gives you root permission in Vault. Set the `VAULT_ADDR` environment variable to `http://127.0.0.1:8200`. This environment variable tells the client where to reach the running Vault server. As some troubleshooting may be required, the log level is set to debug.
 
 ```powershell
-❯ $env:VAULT_ADDR =  "http://127.0.0.1:8200"
 ❯ $rootToken = New-Guid
+❯ $env:VAULT_ADDR =  "http://127.0.0.1:8200"
 ❯ vault server -dev -dev-root-token-id $rootToken -log-level debug
 ```
 
-The server is now started and will output to stdout. If you ever need to reauthenticate, use the `vault login` command and enter the root token after the prompt. 
+The server is now started and will output to stdout. If you ever need to reauthenticate as the root user, use the `vault login` command and enter the root token after the prompt. 
 
 ## Setting up the Azure AD Application
 
@@ -115,7 +115,7 @@ We'll use use the [`vault_jwt_auth_backend`](https://www.terraform.io/docs/provi
 * The `oidc_discovery_url` is the manifest URL, without '.wellknown/openid-configuration'. 
 * `oidc_client_id` is the client ID found in the overview and `oidc_client_secret` is the generated secret.
 
-The resource should be placed in a .tf file. In my case, main.tf. This is what the resource ends up looking like:
+The resource should be placed in a file named 'main.tf'. This is what the resource ends up looking like:
 
 ```hcl
 # main.tf
@@ -170,7 +170,7 @@ resource "vault_jwt_auth_backend_role" "azure_oidc_user" {
 
 > **NOTE:** Don't set `verbose_oidc_logging = true` in production. This logs sensitive information to stdout and the audit logs. Use it only to troubleshoot the setup of the authentication.
 
-Add this to the .tf file and apply the Terraform configuration. If everything went well, logging in should now be possible.
+Add this to the main.tf file and apply the Terraform configuration with `terraform apply`. If everything went well, logging in should now be possible.
 
 ### Testing the login
 
@@ -217,7 +217,7 @@ Now that the login is successful, we need to assign permissions in Vault based o
 
 As the group information comes from Azure AD, we must use external groups and assign them aliases pointing to the roles in Azure AD. This must be done for any App Role we want to assign permissions to. In this case, these are the 'VaultUser' and 'VaultAdmin' roles.
 
-To create the external groups, we'll use the [`vault_identity_group`](https://www.terraform.io/docs/providers/vault/r/identity_group.html) resource. The groups will be named 'user' and 'admin'.
+To create the external groups, we'll use the [`vault_identity_group`](https://www.terraform.io/docs/providers/vault/r/identity_group.html) resource. The groups will be named 'user' and 'admin'. Add the below config to the main.tf file.
 
 {{< highlight hcl "hl_lines=5 11" >}}
 # main.tf
@@ -234,7 +234,9 @@ resource "vault_identity_group" "admin" {
 }
 {{< / highlight >}}
 
-After applying the above configuration, we now have two external groups in Vault. Each assign their highlighted policies to anyone or any group that is a member of the external group. To couple our OIDC roles to the external groups, we need to create aliases telling Vault that the OIDC roles received in the token, are part of specific external groups. Use the [`vault_identity_group_alias`](https://www.terraform.io/docs/providers/vault/r/identity_group_alias.html) resource to accomplish this.
+We previously logged in with the user 'Isidore'. This account won't allow for configuration of Vault. We first need to switch to the root user with the `vault login` command before applying the configuration.
+
+After applying the above config, we now have two external groups in Vault. Each assign their highlighted policies to anyone or any group that is a member of the external group. To couple our OIDC roles to the external groups, we need to create aliases telling Vault that the OIDC roles received in the token, are part of specific external groups. Use the [`vault_identity_group_alias`](https://www.terraform.io/docs/providers/vault/r/identity_group_alias.html) resource to accomplish this.
 
 ```hcl
 # main.tf
@@ -251,7 +253,7 @@ resource "vault_identity_group_alias" "admin_alias_azure_vault_admin" {
 }
 ```
 
-After applying the configuration via Terraform, we can now try to log in with the user Isidore.
+Add the above config to the .tf file and apply the configuration with `terraform apply`. Once done, we can try to log in with the user 'Isidore'.
 
 ```powershell
 ❯ vault login -method oidc role=oidc
@@ -283,6 +285,8 @@ resource "vault_jwt_auth_backend" "azure_oidc" {
   default_role = "oidc"
 }
 {{< / highlight >}}
+
+Switch to the root user before applying the configuration.
 
 This will save some typing on both the web UI and the CLI. To log in via the CLI, omit the role key to use the default role:
 
