@@ -29,6 +29,8 @@ While I've done quite a bit with Vault and [OAuth 2.0](https://oauth.net/2/)/[Op
 
 Thankfully, the [documentation](https://www.vaultproject.io/docs/auth/jwt_oidc_providers#azure-active-directory-aad) for setting up Azure AD authentication is quite clear. It describes all the steps to take. This post makes use of the information, but adapts it to the requirements and uses Terraform to apply the configuration to Vault.
 
+This post assumes that the reader has some knowledge of Terraform, Azure AD and Vault. I won't be detailing how to set them up or work with these tools.
+
 ## Start the Vault Server
 
 Let's start with the easy part: starting a development Vault server. If you don't know how to install Vault, there is a [guide](https://learn.hashicorp.com/vault/getting-started/install) on the Vault site. 
