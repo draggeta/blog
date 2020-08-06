@@ -7,7 +7,7 @@
 {{- if .Params.share_img }}
 <meta property="og:image" content="{{ .Params.share_img | absURL }}" />
 {{ else if .Params.image}}
-<!--This modification here allows the url to be formed correctly for my usecase.
+<!--This modification here allows the url to be formed correctly for my use case.
 The problem is that the URL to the image is otherwise relative and breaks.
 -->
 <meta property="og:image" content="{{ .Permalink }}/{{ .Params.image }}" />

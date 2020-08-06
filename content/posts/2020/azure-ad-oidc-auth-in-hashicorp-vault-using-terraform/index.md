@@ -25,11 +25,11 @@ I recently had to set up a [HashiCorp Vault](https://www.vaultproject.io/) serve
 1. Use of [Azure AD Application Roles](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles) for permissions instead of groups
 1. Configure Vault via [Terraform](https://www.terraform.io/)
 
-While I've done quite a bit with Vault and [OAuth 2.0](https://oauth.net/2/)/[OpenID Connect](https://openid.net/connect/), I've never had to use OIDC as an authenticatio backend in Vault. The few setups I've done before all used LDAP as their external authentication source.
+While I've done quite a bit with Vault and [OAuth 2.0](https://oauth.net/2/)/[OpenID Connect](https://openid.net/connect/), I've never had to use OIDC as an authentication backend in Vault. The few setups I've done before all used LDAP as their external authentication source.
 
 Thankfully, the [documentation](https://www.vaultproject.io/docs/auth/jwt_oidc_providers#azure-active-directory-aad) for setting up Azure AD authentication is quite clear. It describes all the steps to take. This post makes use of the information, but adapts it to the requirements and uses Terraform to apply the configuration to Vault.
 
-This post assumes that the reader has some knowledge of Terraform, Azure AD and Vault. I won't be detailing how to set them up or work with these tools. The examples in this post will focus solely on the authentication configuration. A more complete example containing among others, policy defitions, can be found in my [GitHub](https://github.com/draggeta/blog/tree/master/content/posts/2020/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/code). 
+This post assumes that the reader has some knowledge of Terraform, Azure AD and Vault. I won't be detailing how to set them up or work with these tools. The examples in this post will focus solely on the authentication configuration. A more complete example containing among others, policy definitions, can be found in my [GitHub](https://github.com/draggeta/blog/tree/master/content/posts/2020/azure-ad-oidc-auth-in-hashicorp-vault-using-terraform/code). 
 
 
 ## Start the Vault Server
@@ -104,7 +104,7 @@ You'll end up with a screen similar to this screenshot after assigning the App R
   caption="Users with App Roles" 
   caption-position="bottom"
   caption-effect="fade"
-  alt="List of three users with their assigned Azure AD Application Roles. The users are Anthony, Scholastica and Isodore." 
+  alt="List of three users with their assigned Azure AD Application Roles. The users are Anthony, Scholastica and Isidore." 
   attr=""
 >}}
 
