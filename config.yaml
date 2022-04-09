@@ -6,7 +6,7 @@ theme: beautifulhugo # https://github.com/halogenica/beautifulhugo
 
 enableGitInfo: true
 
-author: Tony Fortes Ramos
+author: Tony
 copyright: ©2019
 
 # summarylength: 30
@@ -132,7 +132,7 @@ params:
   #   desc: Hexagon
 
 author:
-  name: Tony Fortes Ramos
+  name: Tony
   email: stronglybranched@outlook.com
   github: draggeta
   linkedin: antoniofortesramos
